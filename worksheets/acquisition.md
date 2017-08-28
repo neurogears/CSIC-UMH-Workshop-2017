@@ -4,8 +4,8 @@ title: Acquisition and Tracking
 permalink: /worksheets/
 ---
 
-<img width="10%" style="float: left;" src="/assets/images/bonsai.png">
-<img width="10%" style="float: right;" src="/assets/images/neurogears.png">
+<img width="10%" style="float: left;" src="{{ site.baseurl }}/assets/images/bonsai.png">
+<img width="10%" style="float: right;" src="{{ site.baseurl }}/assets/images/neurogears.png">
 
 Bonsai Acquisition and Tracking
 ===============================
@@ -14,7 +14,7 @@ Getting Started
 ---------------
 
 1. Download Bonsai from [http://bonsai-rx.org](http://bonsai-rx.org).
-2. Install **Bonsai - Starter Pack** from the package manager. ![The Bonsai package manager](/assets/images/packagemanager.png)
+2. Install **Bonsai - Starter Pack** from the package manager. ![The Bonsai package manager]({{ site.baseurl }}/assets/images/packagemanager.png)
 3. Click the `Updates` tab on the left side of the screen and install any available upgrades.
 4. Read [http://bonsai-rx.org/docs/editor](http://bonsai-rx.org/docs/editor) for an introduction to the user interface.
 

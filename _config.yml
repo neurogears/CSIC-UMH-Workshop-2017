@@ -2,6 +2,7 @@ title: UMH Workshop 2017
 description: A course on the Bonsai visual language for reactive programming.
 google_analytics:
 theme: minima
+baseurl: "/UMH-Workshop-2017"
 
 exclude:
   - Gemfile
