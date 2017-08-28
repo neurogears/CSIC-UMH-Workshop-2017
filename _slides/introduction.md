@@ -1,7 +1,7 @@
 ---
 layout: slides
-title: Presentation
-permalink: /slides/
+title: Introduction to Bonsai
+permalink: /slides/introduction/
 ---
 
 ## Slide 1.1

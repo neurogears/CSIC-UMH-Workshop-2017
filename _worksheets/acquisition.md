@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Acquisition and Tracking
-permalink: /worksheets/
 ---
 
 <img width="10%" style="float: left;" src="{{ site.baseurl }}/assets/images/bonsai.png">
