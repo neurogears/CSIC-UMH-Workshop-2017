@@ -7,3 +7,4 @@ baseurl: "/UMH-Workshop-2017"
 exclude:
   - Gemfile
   - Gemfile.lock
+  - "**README.md"
