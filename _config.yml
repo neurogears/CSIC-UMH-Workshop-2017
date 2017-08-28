@@ -4,6 +4,9 @@ google_analytics:
 theme: minima
 baseurl: "/UMH-Workshop-2017"
 
+plugins:
+  - jekyll-seo-tag
+
 include:
   - _pages
   - _slides
