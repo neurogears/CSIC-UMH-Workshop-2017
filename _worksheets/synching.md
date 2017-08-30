@@ -9,6 +9,10 @@ title: Data Synchronization
 Data Synchronization
 ====================
 
+Synchronizing behaviour and other experimental events with recorded neural data is a fundamental component of neuroscience data collection and analysis. The exercises below will walk you through some common cases encountered in systems neuroscience experiments, and how to deal with them using Bonsai.
+
+The general approach when synchronizing two independent data acquisition clocks is to record precise temporal events simultaneously in both systems. If you know that the two recorded events are the same, you know that those two time points are the same. When using multiple systems, it is common to choose the system with the fastest clock as *master*, and route all events to its analog or digital inputs.
+
 ### **Exercise 1:** Synchronizing behaviour events with ephys
 
 * Insert a `KeyDown` source.
@@ -19,7 +23,7 @@ Data Synchronization
 * Select the `Rhd2000DataFrame` > `BoardAdcData` field from the source output using the context menu.
 * Insert a `SelectChannels` transform and set the `Channels` property to 0. This will select only the first analog input channel.
 * Insert a `MatrixWriter` sink and configure its `Path` property with a file name ending in `.bin`.
-* Run the workflow and alternately press the selected key and another key a couple of times to make the LED change state.
+* Run the workflow and alternate pressing the selected key and some other key. Repeat this a couple of times to make the LED change state.
 * Open the binary file in MATLAB/Python/R and plot the raw data. What can you conclude from it?
 
 ### **Exercise 2:** Synchronizing video with ephys using an LED
@@ -36,13 +40,13 @@ Data Synchronization
 
 ### **Exercise 3 (Optional):** Synchronizing video with ephys using GPIO
 
-Industrial grade cameras often include a GPIO connector which exposes input and output digital pins that operate similar to the pins in an Arduino or other microcontrollers. It is possible to configure these pins to report when the shutter of the camera is open or closed, i.e. when a frame is being exposed, the shutter is open and the pin goes `HIGH`, and conversely, when exposure stops, the shutter closes and the pin goes `LOW`.
+Industrial grade cameras often include a GPIO connector which exposes input and output digital pins that operate similar to the pins in an Arduino or other microcontrollers. It is possible to configure these pins to report when the shutter of the camera is open or closed (i.e., when a frame is being exposed, the shutter is open and the pin goes `HIGH`, and conversely, when exposure stops, the shutter closes and the pin goes `LOW`).
 
 By connecting this strobe signal to the ephys system and counting the number of pulses, it is possible to reconstruct with sub-millisecond precision how many exposures were acquired by the camera, and when each of them started. One problem to consider during high-speed recordings, however, is that frames may occasionally be dropped if the system cannot handle each acquired frame fast enough. One way to work around this issue is to record the hardware frame counter which can be enabled in the drivers of all industrial grade cameras.
 
 * Connect one of the output GPIO camera pins to the OpenEphys analog input 1.
 * Configure the camera output as *strobe*.
-* Insert a `FlyCapture` source or other industrial grade camera capture operator.
+* Insert a `FlyCapture` source or other industrial grade camera capture source.
 * Record the embedded hardware frame counter into a text file using `CsvWriter`.
 * Record the OpenEphys analog input and verify that you can recover individual camera pulses.
 * Point out some of the remaining difficulties of this approach and how you would adress them.
@@ -68,7 +72,7 @@ In this exercise you will track the display of a very simple visual stimulus: a 
 * Run the workflow and verify that the output of `SolidColor` oscillates between black and white.
 * Insert an `Rhd2000EvalBoard` source.
 * Select the `Rhd2000DataFrame` > `BoardAdcData` and either save or visualize its output.
-* Connect the photodiode to the ephys analog input and hold it flat against the screen, on top of the visualizer window.
+* Connect a photodiode, or a photoresistor, to the ephys analog input and hold it flat against the screen, on top of the visualizer window.
 * Verify that you can capture the transitions between black and white in the ephys data using the photodiode.
 
 ### **Exercise 5 (Optional):** Synchronizing video acquisition to a visual stimulus using GPIO
@@ -79,6 +83,6 @@ However, sometimes this is not feasible: the stimulus may be covered by the subj
 
 To do this, you can use the photodiode technique described in the previous exercise, but this time the digital signal from the photodiode will be used as a trigger for the camera by connecting it to one of the GPIO inputs.
 
-* Assuming a DLP projector, how would you design the optical trigger for a camera system that ensures a single pulse is generated for each projected frame? *Hint:* In a DLP projector, each colour of a BGR frame is projected sequentially: first the Blue channel, then the Green, and finally the Red channel, in quick succession.
+* Assuming a DLP projector, how would you design the optical trigger for a camera system that ensures a single pulse is generated for each projected frame (hint: In a DLP projector, each colour of a BGR frame is projected sequentially: first the Blue channel, then the Green, and finally the Red channel, in quick succession)?
 * **Optional:** Synchronize a camera with a projector using the GPIO trigger system outlined above.
 
