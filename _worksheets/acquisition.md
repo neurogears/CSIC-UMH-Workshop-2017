@@ -20,7 +20,7 @@ Getting Started
 Video Acquisition
 -----------------
 
-Bonsai can be used to acquire and record data from many different devices. The exercises below will make you comfortable with the most common Bonsai data types.
+Bonsai can be used to acquire and record data from many different devices. The exercises below will make you comfortable with the most common Bonsai data types. The first data type we will discuss is an image, which is represented as a 2D matrix of pixels. Each pixel represents either a brightness value in a grayscale image, or a BGR colour value in a colour image.
 
 ### **Exercise 1:** Saving a video
 
@@ -37,6 +37,8 @@ Bonsai can be used to acquire and record data from many different devices. The e
 
 Audio Acquisition
 -----------------
+
+Audio data is captured at much higher temporal sampling frequencies than video. However, the data is typically buffered into chunks of multiple samples before being sent to the computer. Also, multiple audio channels can be acquired simultaneously in the case of a stereo microphone, or high-density ephys probes. For this reason, such multi-sample, multi-channel data is also typically represented as a 2D matrix of amplitude values, where rows represent channels, and columns represent time.
 
 ### **Exercise 3:** Saving a WAV file
 
@@ -64,7 +66,7 @@ Audio Acquisition
 Arduino Acquisition
 -------------------
 
-In order to communicate and interact with an Arduino using Bonsai, you must setup a protocol for sending data to and from your host PC to the Arduino (via the USB cable). This can be a challenging task, as you will see later. Thankfully Arduino already includes an implementation of a standard, and very efficient, binary protocol called **Firmata** that can be used for serial communication with external applications.
+In order to communicate and interact with an Arduino using Bonsai, you must setup a protocol for sending data to and from your host PC to the Arduino (via the USB cable). This can be a challenging task, as you will see later. Thankfully, Arduino already includes a standard implementation of a very efficient binary protocol called **Firmata** that can be used for serial communication with external applications.
 
 ### **Exercise 6:** Configure Arduino for real-time communication
 
@@ -89,6 +91,8 @@ In order to communicate and interact with an Arduino using Bonsai, you must setu
 
 Video Tracking
 --------------
+
+Bonsai allows processing the captured raw data to extract real-time measures of behaviour or other derived quantities. The exercises below will introduce you to some of its online video processing capabilities.
 
 ### **Exercise 8:** Segmentation of a coloured object
 
