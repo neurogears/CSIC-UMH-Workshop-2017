@@ -7,7 +7,9 @@ title: Closed-Loop Systems
 <img width="10%" style="float: right;" src="{{ site.baseurl }}/assets/images/neurogears.png">
 
 Closed-Loop Systems
-===============================
+===================
+
+In a closed-loop system, the results of data processing feedback into the external world, establishing a relationship where the output of the system depends on the sensory input. Many behavioural experiments in neuroscience require some kind of closed-loop interaction between the subject and the experimental setup. The exercises below will show you how to use the online data processing capabilities of Bonsai to create many different kinds of closed-loop systems.
 
 ### **Exercise 1:** Measuring closed-loop latency
 
@@ -54,9 +56,15 @@ In PC sound systems, latency depends greatly on audio acquisition and generation
 * Run the workflow and change the values of the `Translation` property while visualizing the output of `WarpAffine`. Notice that the transformation induces a shift in the input image controlled by the values in the property.
 * In a new branch, create an object tracking workflow using `FindContours` and `BinaryRegionAnalysis`.
 * Insert a `LargestBinaryRegion` transform to extract the largest detected object in the image.
+
+To centre the video on the tracked object, you can start by shifting each frame by the negative position of the object, such that its new position is now (0,0). However, because the centre of the image is actually not at (0,0), you need to add an additional fixed offset to position the object at the image centre. 
+
 * Select the `ConnectedComponent` > `Centroid` field of the largest binary region using the context menu.
 * Insert a `Negate` transform. This will make the X and Y coordinates of the centroid negative.
-* Insert an `Add` transform. This will add a fixed offset to the point. Because the centre of the image is not at (0,0) the result needs to be offset to the image centre, e.g. (320,240).
+* Insert an `Add` transform. This will add a fixed offset to the point. Configure the offset to be the position of the image centre, e.g. (320,240).
+
+The next step is to modify the output of `AffineTransform` dynamically each time a new image shift is calculated. You can do this by using property mapping operators, which are described in more detail at [http://bonsai-rx.org/docs/property-mapping](http://bonsai-rx.org/docs/property-mapping).
+
 * Insert an `InputMapping` operator.
 * Connect the `InputMapping` to the `AffineTransform` operator.
 * Open the `PropertyMappings` editor and add a new mapping to the `Translation` property.
@@ -70,9 +78,9 @@ In PC sound systems, latency depends greatly on audio acquisition and generation
 * Select the `ConnectedComponent` > `Centroid` field of the largest binary region using the context menu.
 * Insert a `Subtract` transform and configure the `Value` property to be some target coordinate in the image. 
 
-The result of the `Subtract` operator will be a vector pointing from the target to the centroid of the largest object. The distance of the centroid to the target is the length of that vector. There is currently no built-in node in Bonsai to perform this specific calculation, but you can make our own using the `Scripting` package.
+The result of the `Subtract` operator will be a vector pointing from the target to the centroid of the largest object. The distance of the centroid to the target would be the length of that vector. There is currently no built-in node in Bonsai to extract this specific quantity, but you can make our own using the `Scripting` package.
 
-* Insert an `ExpressionTransform` operator. This node allows us to write small mathematical and logical expressions to transform input values.
+* Insert an `ExpressionTransform` operator. This node allows you to write small mathematical and logical expressions to transform input values.
 * Change the `Expression` property to `Math.Sqrt(X*X + Y*Y)`.
 
 **Note:** Inside the `Expression` property you can access any field of the input by name. In this case `X` and `Y` represent the corresponding fields of the `Point2f` data type. You can check which fields are available by right-clicking the previous node. You can use all the normal arithmetical and logical operators as well as the mathematical functions available in the [`Math`](https://msdn.microsoft.com/en-us/library/system.math(v=vs.110).aspx) type. The default expression `it` means "input" and represents the input value itself.
@@ -101,7 +109,7 @@ The `FunctionGenerator` periodically emits buffered waveforms with values rangin
 * Create an object tracking workflow using `FindContours` and `BinaryRegionAnalysis`.
 * Insert a `SortBinaryRegions` transform. This operator will sort the list of objects by area, in order of largest to smallest.
 
-To calculate the distance between the two largest objects in every frame you will need to take into account some special cases. Specifically, there is the possibility that no object is detected, or that the two objects may be touching each other and will be detected as a single object. In order to perform this specific calculation we will develop a new operator.
+To calculate the distance between the two largest objects in every frame you will need to take into account some special cases. Specifically, there is the possibility that no object is detected, or that the two objects may be touching each other and will be detected as a single object. You can develop a new operator in order to perform this specific calculation.
 
 * Insert a `PythonTransform` operator. Change the `Script` property to the following code:
 
