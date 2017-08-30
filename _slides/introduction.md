@@ -42,3 +42,15 @@ permalink: /slides/introduction/
         </tr>
     </tbody>
 </table>
+
+---
+
+![devices](../../assets/images/devices.jpg)
+
+--
+
+<iframe width="854" height="480" src="https://www.youtube.com/embed/qXqAXgXJPmo?controls=0&amp;autoplay=1&amp;showinfo=0&amp;rel=0&amp;html5=1" frameborder="0" allowfullscreen></iframe>
+
+--
+
+<iframe width="854" height="480" src="https://www.youtube.com/embed/mJDV07ptQFk?start=40&amp;controls=0&amp;autoplay=1&amp;showinfo=0&amp;rel=0&amp;html5=1" frameborder="0" allowfullscreen/>
