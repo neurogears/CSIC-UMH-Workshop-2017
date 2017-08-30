@@ -9,9 +9,9 @@ title: Closed-Loop Systems
 Closed-Loop Systems
 ===============================
 
-### Exercise 1: Measuring closed-loop latency
+### **Exercise 1:** Measuring closed-loop latency
 
-The easiest way to measure the latency of a closed-loop system is to use a feedback test. In this test, we feed the output of the closed-loop system directly into the same sensor that was used to generate the output in the first place, and we record all the sensor measurements. For example, to perform a simple audio feedback test we can connect the microphone directly to the speakers.
+The easiest way to measure the latency of a closed-loop system is to use a feedback test. In this test, we feed the output of the closed-loop system directly into the same sensor that was used to generate the output in the first place, and record all the sensor measurements. For example, to perform a simple audio feedback test you can connect the microphone directly to the speakers.
 
 * Insert an `AudioCapture` source.
 * Insert an `AudioPlayback` sink.
@@ -20,9 +20,9 @@ The easiest way to measure the latency of a closed-loop system is to use a feedb
 * Open the recorded WAV file in Audacity or other waveform analysis software.
 * Measure the round-trip time between the sound onset and its feedback.
 
-In PC sound systems, latency depends greatly on audio acquisition and generation hardware, so expect the numbers to vary greatly across different machines. You can use video feedback to measure latency in video based closed-loop systems.
+In PC sound systems, latency depends greatly on audio acquisition and generation hardware, so expect the numbers to vary greatly across different machines. You can use video feedback in a similar way to measure latency in video based closed-loop systems.
 
-### Exercise 2: Triggering a digital line based on region of interest activity
+### **Exercise 2:** Triggering a digital line based on region of interest activity
 
 * Insert a `CameraCapture` source.
 * Insert a `Crop` transform.
@@ -45,7 +45,7 @@ In PC sound systems, latency depends greatly on audio acquisition and generation
 **Note:** The `CropPolygon` operator uses the `Regions` property to define multiple, possibly non-rectangular regions. The visual editor is similar to `Crop`, where you draw a rectangular box. However, in `CropPolygon` you can move the corners of the box by right-clicking *inside* the box and dragging the cursor to the new position. You can add new points by double-clicking with the left mouse button, and delete points by double-clicking with the right mouse button. You can delete regions by pressing the `Del` key and cycle through regions by pressing the `Tab` key.
 {: .notice--info}
 
-### Exercise 3: Centring the video on a tracked object
+### **Exercise 3:** Centring the video on a tracked object
 
 * Insert a `CameraCapture` source.
 * Insert a `WarpAffine` transform. This node applies affine transformations on the input defined by the `Transform` matrix.
@@ -56,21 +56,21 @@ In PC sound systems, latency depends greatly on audio acquisition and generation
 * Insert a `LargestBinaryRegion` transform to extract the largest detected object in the image.
 * Select the `ConnectedComponent` > `Centroid` field of the largest binary region using the context menu.
 * Insert a `Negate` transform. This will make the X and Y coordinates of the centroid negative.
-* Insert an `Add` transform. This will add a fixed offset to the point. Because the centre of the image is not at (0,0) we need to offset the result by the image centre, e.g. (320,240).
+* Insert an `Add` transform. This will add a fixed offset to the point. Because the centre of the image is not at (0,0) the result needs to be offset to the image centre, e.g. (320,240).
 * Insert an `InputMapping` operator.
 * Connect the `InputMapping` to the `AffineTransform` operator.
 * Open the `PropertyMappings` editor and add a new mapping to the `Translation` property.
 * Run the workflow and verify that the output of `WarpAffine` is a video which is always centred on the tracked object.
 * **Optional**: Insert a `Crop` transform after `WarpAffine` to select a bounded region around the object.
 
-### Exercise 4: Modulating stimulus intensity based on distance to a point
+### **Exercise 4:** Modulating stimulus intensity based on distance to a point
 
 * Create an object tracking workflow using `FindContours` and `BinaryRegionAnalysis`.
 * Insert a `LargestBinaryRegion` transform.
 * Select the `ConnectedComponent` > `Centroid` field of the largest binary region using the context menu.
 * Insert a `Subtract` transform and configure the `Value` property to be some target coordinate in the image. 
 
-The result of the `Subtract` operator will be a vector pointing from the target to the centroid of the largest object. The distance of the centroid to the target is the length of that vector. There is currently no built-in node in Bonsai to perform this specific calculation, but we can make our own using the `Scripting` package.
+The result of the `Subtract` operator will be a vector pointing from the target to the centroid of the largest object. The distance of the centroid to the target is the length of that vector. There is currently no built-in node in Bonsai to perform this specific calculation, but you can make our own using the `Scripting` package.
 
 * Insert an `ExpressionTransform` operator. This node allows us to write small mathematical and logical expressions to transform input values.
 * Change the `Expression` property to `Math.Sqrt(X*X + Y*Y)`.
@@ -82,7 +82,7 @@ The result of the `Subtract` operator will be a vector pointing from the target 
 * Insert a `ConvertScale` transform.
 * Insert an `AudioPlayback` sink.
 
-The `FunctionGenerator` periodically emits buffered waveforms with values ranging between 0 and 1. You can increase the `Scale` property of the `ConvertScale` operator in order to bring them to an audible range, which should happen for values above 100. Next we want to modulate the `Scale` property dynamically based on the distance of the object to the target.
+The `FunctionGenerator` periodically emits buffered waveforms with values ranging between 0 and 1. You can increase the `Scale` property of the `ConvertScale` operator in order to bring them to an audible range, which should happen for values above 100. The next step is to modulate the `Scale` property dynamically based on the distance of the object to the target.
 
 * Externalize the `Scale` property of the `ConvertScale` operator using the right-click context menu.
 * Insert a `Rescale` transform after the `ExpressionTransform` operator.
@@ -96,12 +96,12 @@ The `FunctionGenerator` periodically emits buffered waveforms with values rangin
 * Connect the `Rescale` operator to the externalized `Scale` property.
 * Run the workflow and verify that stimulus intensity is modulated by the distance of the object to the target point.
 
-### Exercise 5: Triggering a digital line based on distance between objects
+### **Exercise 5:** Triggering a digital line based on distance between objects
 
 * Create an object tracking workflow using `FindContours` and `BinaryRegionAnalysis`.
 * Insert a `SortBinaryRegions` transform. This operator will sort the list of objects by area, in order of largest to smallest.
 
-Next we need to calculate the distance between the two largest objects, but we need to consider the possibility of no object being detected, or the two objects touching each other and becoming a single object. In order to perform this specific calculation we will develop a new operator.
+To calculate the distance between the two largest objects in every frame you will need to take into account some special cases. Specifically, there is the possibility that no object is detected, or that the two objects may be touching each other and will be detected as a single object. In order to perform this specific calculation we will develop a new operator.
 
 * Insert a `PythonTransform` operator. Change the `Script` property to the following code:
 

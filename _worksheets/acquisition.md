@@ -22,14 +22,14 @@ Video Acquisition
 
 Bonsai can be used to acquire and record data from many different devices. The exercises below will make you comfortable with the most common Bonsai data types.
 
-### Exercise 1: Saving a video
+### **Exercise 1:** Saving a video
 
 * Insert a `CameraCapture` source.
 * Insert a `VideoWriter` sink.
 * Configure the `FileName` property of the `VideoWriter` operator with a file name ending in `.avi`.
 * Run the workflow and check that it generates a valid video file.
 
-### Exercise 2: Saving a grayscale video
+### **Exercise 2:** Saving a grayscale video
 
 * Insert a `Grayscale` transform between `CameraCapture` and `VideoWriter`.
 * Run the workflow. The output should now be a grayscale movie.
@@ -38,7 +38,7 @@ Bonsai can be used to acquire and record data from many different devices. The e
 Audio Acquisition
 -----------------
 
-### Exercise 3: Saving a WAV file
+### **Exercise 3:** Saving a WAV file
 
 * Insert an `AudioCapture` source.
 * Insert an `AudioWriter` sink.
@@ -46,14 +46,14 @@ Audio Acquisition
 * Make sure that the `SamplingFrequency` property of the `AudioWriter` matches the frequency of audio capture.
 * Run the workflow for some seconds and check that it generates a valid audio file.
 
-### Exercise 4: Saving raw binary waveform data
+### **Exercise 4:** Saving raw binary waveform data
 
 * Replace the `AudioWriter` operator with a `MatrixWriter` sink.
 * Configure the `Path` property of the `MatrixWriter` operator with a file name ending in `.bin`.
 * Run the workflow for some seconds.
 * Open the resulting binary file in MATLAB/Python/R and check that binary samples have been correctly recorded.
 
-### Exercise 5 (Optional): Record raw data from an OpenEphys board
+### **Exercise 5 (Optional):** Record raw data from an OpenEphys board
 
 * Install the **Bonsai - Ephys Library** from the package manager.
 * Replace the `AudioCapture` source by an `Rhd2000EvalBoard` source.
@@ -64,9 +64,9 @@ Audio Acquisition
 Arduino Acquisition
 -------------------
 
-In order to communicate and interact with an Arduino using Bonsai, you must setup a protocol for sending data to and from your host PC to the Arduino (via the USB cable). This can be a challenging task, as we will see later. Thankfully Arduino already includes an implementation of a standard, and very efficient, binary protocol called **Firmata** that can be used for serial communication with external applications.
+In order to communicate and interact with an Arduino using Bonsai, you must setup a protocol for sending data to and from your host PC to the Arduino (via the USB cable). This can be a challenging task, as you will see later. Thankfully Arduino already includes an implementation of a standard, and very efficient, binary protocol called **Firmata** that can be used for serial communication with external applications.
 
-### Exercise 6: Configure Arduino for real-time communication
+### **Exercise 6:** Configure Arduino for real-time communication
 
 * Open the Arduino IDE.
 * Upload `StandardFirmata` to your Arduino. The code can be found in `File` > `Examples` > `Firmata`.
@@ -78,7 +78,7 @@ In order to communicate and interact with an Arduino using Bonsai, you must setu
 * Configure the `FileName` property of the `CsvWriter` operator with a file name ending in `.csv`.
 * Run the workflow and check the text file data.
 
-### Exercise 7: Control an LED
+### **Exercise 7:** Control an LED
 
 * Insert a `Boolean` source.
 * Insert a `DigitalOutput` sink.
@@ -90,7 +90,7 @@ In order to communicate and interact with an Arduino using Bonsai, you must setu
 Video Tracking
 --------------
 
-### Exercise 8: Segmentation of a coloured object
+### **Exercise 8:** Segmentation of a coloured object
 
 * Insert a `CameraCapture` source.
 * Insert a `RangeThreshold` transform.
@@ -103,7 +103,7 @@ This method segments coloured objects by setting boundaries directly on the BGR 
 * Insert an `HsvThreshold` transform.
 * Configure the `Lower`and `Upper` properties of the `HsvThreshold` to isolate the object. 
 
-### Exercise 9: Real-time position tracking
+### **Exercise 9:** Real-time position tracking
 
 * Insert a `FindContours` transform. This operator traces the contours of all the objects in a black-and-white image. An *object* is defined as a region of connected white pixels.
 * Insert a `BinaryRegionAnalysis` transform. This node calculates the area, center of mass, and orientation for all the detected contours.
@@ -111,7 +111,7 @@ This method segments coloured objects by setting boundaries directly on the BGR 
 * Select the `ConnectedComponent` > `Centroid` field of the largest binary region using the context menu.
 * Record the position of the centroid using a `CsvWriter` sink.
 
-### Exercise 10: Background subtraction and motion tracking
+### **Exercise 10:** Background subtraction and motion tracking
 
 * Create a grayscale video stream.
 * Insert a `Skip` operator. Set its `Count` property to 1.
