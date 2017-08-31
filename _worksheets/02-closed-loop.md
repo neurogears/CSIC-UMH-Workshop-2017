@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Closed-Loop Systems
+permalink: /slides/closed-loop/
 ---
 
 <img width="10%" style="float: left;" src="{{ site.baseurl }}/assets/images/bonsai.png">

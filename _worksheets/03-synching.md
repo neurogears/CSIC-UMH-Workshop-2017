@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Data Synchronization
+permalink: /slides/synching/
 ---
 
 <img width="10%" style="float: left;" src="{{ site.baseurl }}/assets/images/bonsai.png">
