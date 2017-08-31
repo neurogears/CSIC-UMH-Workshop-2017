@@ -6,8 +6,8 @@ title: Acquisition and Tracking
 <img width="10%" style="float: left;" src="{{ site.baseurl }}/assets/images/bonsai.png">
 <img width="10%" style="float: right;" src="{{ site.baseurl }}/assets/images/neurogears.png">
 
-Bonsai Acquisition and Tracking
-===============================
+Acquisition and Tracking
+========================
 
 Getting Started
 ---------------
