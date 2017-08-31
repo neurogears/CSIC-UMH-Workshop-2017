@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: archive
 title: Slides
 permalink: /slides/
 ---

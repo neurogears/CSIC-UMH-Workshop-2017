@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: archive
 title: Worksheets
 permalink: /worksheets/
 ---
