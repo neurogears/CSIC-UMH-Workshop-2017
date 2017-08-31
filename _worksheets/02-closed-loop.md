@@ -1,14 +1,8 @@
 ---
-layout: default
+layout: worksheet
 title: Closed-Loop Systems
 permalink: /slides/closed-loop/
 ---
-
-<img width="10%" style="float: left;" src="{{ site.baseurl }}/assets/images/bonsai.png">
-<img width="10%" style="float: right;" src="{{ site.baseurl }}/assets/images/neurogears.png">
-
-Closed-Loop Systems
-===================
 
 In a closed-loop system, the results of data processing feedback into the external world, establishing a relationship where the output of the system depends on the sensory input. Many behavioural experiments in neuroscience require some kind of closed-loop interaction between the subject and the experimental setup. The exercises below will show you how to use the online data processing capabilities of Bonsai to create many different kinds of closed-loop systems.
 
