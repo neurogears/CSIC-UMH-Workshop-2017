@@ -1,7 +1,7 @@
 ---
 layout: worksheet
 title: Data Synchronization
-permalink: /slides/synching/
+permalink: /worksheets/synching/
 ---
 
 Synchronizing behaviour and other experimental events with recorded neural data is a fundamental component of neuroscience data collection and analysis. The exercises below will walk you through some common cases encountered in systems neuroscience experiments, and how to deal with them using Bonsai.
