@@ -3,6 +3,8 @@ layout: worksheet
 title: Welcome
 ---
 
+## Instituto de Neurociências Bonsai Course 2017
+
 This training course will introduce you to the basic concepts of the [Bonsai](http://bonsai-rx.org/) visual programming language. By the end of the course you should know:
 
 * How to use Bonsai to create data acquisition and processing pipelines

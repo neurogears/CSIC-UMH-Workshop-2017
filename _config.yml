@@ -1,5 +1,7 @@
-title: CSIC-UMH Bonsai Workshop 2017
-description: A course on the Bonsai visual language for reactive programming.
+title: INBC 2017
+description: A course on the Bonsai visual language for reactive programming developed by NeuroGEARS, Ltd.
+funding: We would like to thank our sponsors for their financial contribution.
+funding_logo: severo_ochoa-mecomp
 google_analytics:
 theme: minima
 baseurl: "/CSIC-UMH-Workshop-2017"
