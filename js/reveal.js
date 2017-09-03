@@ -3388,7 +3388,8 @@
 
 				// YouTube postMessage API
 				if( /youtube\.com\/embed\//.test( iframe.getAttribute( 'src' ) ) && autoplay ) {
-					iframe.contentWindow.postMessage( '{"event":"command","func":"playVideo","args":""}', '*' );
+					iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+					iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
 				}
 				// Vimeo postMessage API
 				else if( /player\.vimeo\.com\//.test( iframe.getAttribute( 'src' ) ) && autoplay ) {
