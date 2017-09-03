@@ -55,6 +55,10 @@ permalink: /slides/introduction/
     <section>
         <img alt="Devices in systems neuroscience" src="../../assets/images/devices.jpg"/>
     </section>
+    <section data-background-iframe="https://www.youtube.com/embed/-NAH5vlkgkk?controls=0&amp;enablejsapi=1&amp;autoplay=1&amp;loop=1&amp;playlist=4q9mFkZ3J_g&amp;showinfo=0&amp;rel=0&amp;html5=1">
+    </section>
+    <section data-background-iframe="https://www.youtube.com/embed/qXcIZ1R68SQ?controls=0&amp;enablejsapi=1&amp;autoplay=1&amp;loop=1&amp;playlist=4q9mFkZ3J_g&amp;showinfo=0&amp;rel=0&amp;html5=1">
+    </section>
     <section data-background-iframe="https://www.youtube.com/embed/4q9mFkZ3J_g?controls=0&amp;enablejsapi=1&amp;autoplay=1&amp;loop=1&amp;playlist=4q9mFkZ3J_g&amp;showinfo=0&amp;rel=0&amp;html5=1">
     </section>
     <section data-background-iframe="https://www.youtube.com/embed/qXqAXgXJPmo?controls=0&amp;enablejsapi=1&amp;autoplay=1&amp;showinfo=0&amp;rel=0&amp;html5=1">
