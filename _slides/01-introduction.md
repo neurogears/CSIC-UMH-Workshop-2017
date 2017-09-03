@@ -4,40 +4,40 @@ title: Introduction to Bonsai
 permalink: /slides/introduction/
 ---
 
-<!-- .element: data-background="#000000" -->
+<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+<script type="text/template">
+
 # Bonsai
-### A visual language for reactive programming
+### Reactive programming
 
 ---
 
-<!-- .element: data-background="#000000" -->
 [http://bonsai-rx.org](http://bonsai-rx.org)
 
 ---
 
-<!-- .element: data-background="#000000" -->
 ## Course Outline
 
 <table class="reveal">
     <thead>
         <tr>
             <th></th>
-            <th><small style="color:white">Monday</small></th>
-            <th><small style="color:white">Tuesday</small></th>
-            <th><small style="color:white">Wednesday</small></th>
-            <th><small style="color:white">Thursday</small></th>
+            <th><small>Monday</small></th>
+            <th><small>Tuesday</small></th>
+            <th><small>Wednesday</small></th>
+            <th><small>Thursday</small></th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><small style="color:white">Morning</small></td>
+            <td><small>Morning</small></td>
             <td><small style="color:cornflowerblue">Introduction to Bonsai</small></td>
             <td><small style="color:darkgoldenrod">Acquisition and Tracking</small></td>
             <td><small style="color:darkgoldenrod">Closed-Loop and Synching</small></td>
             <td><small style="color:darkgoldenrod">Final Projects</small></td>
         </tr>
         <tr>
-            <td><small style="color:white">Afternoon</small></td>
+            <td><small>Afternoon</small></td>
             <td><small style="color:chocolate">Acquisition and Tracking</small></td>
             <td><small style="color:chocolate">Closed-Loop and Synching</small></td>
             <td><small style="color:cornflowerblue">Advanced Concepts</small></td>
@@ -46,29 +46,25 @@ permalink: /slides/introduction/
     </tbody>
 </table>
 
----
+</script>
+</section>
 
-<!-- .element: data-background="#000000" -->
-![Devices in systems neuroscience](../../assets/images/devices.jpg)
+<!-- Raw HTML for embedded iframe backgrounds -->
+<section>
+    <section>
+        <img alt="Devices in systems neuroscience" src="../../assets/images/devices.jpg"/>
+    </section>
+    <section data-background-iframe="https://www.youtube.com/embed/4q9mFkZ3J_g?controls=0&amp;enablejsapi=1&amp;autoplay=1&amp;loop=1&amp;playlist=4q9mFkZ3J_g&amp;showinfo=0&amp;rel=0&amp;html5=1">
+    </section>
+    <section data-background-iframe="https://www.youtube.com/embed/qXqAXgXJPmo?controls=0&amp;enablejsapi=1&amp;autoplay=1&amp;showinfo=0&amp;rel=0&amp;html5=1">
+    </section>
+    <section data-background-iframe="https://www.youtube.com/embed/mJDV07ptQFk?start=40&amp;controls=0&amp;enablejsapi=1&amp;autoplay=1&amp;showinfo=0&amp;rel=0&amp;html5=1">
+    </section>
+</section>
 
---
+<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+<script type="text/template">
 
-<!-- .element: data-background="#000000" -->
-<iframe width="854" height="480" src="https://www.youtube.com/embed/4q9mFkZ3J_g?controls=0&amp;autoplay=1&amp;loop=1&amp;playlist=4q9mFkZ3J_g&amp;showinfo=0&amp;rel=0&amp;html5=1" frameborder="0" allowfullscreen/>
-
---
-
-<!-- .element: data-background="#000000" -->
-<iframe width="854" height="480" src="https://www.youtube.com/embed/qXqAXgXJPmo?controls=0&amp;autoplay=1&amp;showinfo=0&amp;rel=0&amp;html5=1" frameborder="0" allowfullscreen/>
-
---
-
-<!-- .element: data-background="#000000" -->
-<iframe width="854" height="480" src="https://www.youtube.com/embed/mJDV07ptQFk?start=40&amp;controls=0&amp;autoplay=1&amp;showinfo=0&amp;rel=0&amp;html5=1" frameborder="0" allowfullscreen/>
-
----
-
-<!-- .element: data-background="#000000" -->
 ![Bonsai workflow editor](../../assets/images/editor.jpg)
 
 ---
@@ -215,3 +211,6 @@ permalink: /slides/introduction/
 ###### CombineLatest
 
 ![CombineLatest](../../assets/images/combinelatest.svg)
+
+</script>
+</section>

@@ -4,7 +4,9 @@ title: Advanced Concepts
 permalink: /slides/advanced/
 ---
 
-<!-- .element: data-background="#000000" -->
+<section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+<script type="text/template">
+
 # Bonsai
 ### Advanced Concepts
 
@@ -69,3 +71,6 @@ permalink: /slides/advanced/
 ###### SelectMany
 
 ![SelectMany](../../assets/images/selectmany.svg)
+
+</script>
+</section>
