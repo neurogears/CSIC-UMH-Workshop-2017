@@ -8,6 +8,7 @@ permalink: /slides/introduction/
 <script type="text/template">
 
 # Bonsai
+![Bonsai](../../assets/images/bonsai-circle.svg)
 ### Reactive programming
 
 ---
