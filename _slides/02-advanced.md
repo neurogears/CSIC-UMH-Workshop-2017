@@ -12,33 +12,54 @@ permalink: /slides/advanced/
 
 ---
 
-<!-- .element: data-transition="none" -->
+### Sharing observable sequences
+
+![Branching](../../assets/images/branching-simple.svg)
+<!-- .element: style="display: inline-block; vertical-align: top;" -->
+![Subjects (Publish)](../../assets/images/subjects-publish-simple.svg)
+<!-- .element: class="fragment" style="display: inline-block; vertical-align: top; padding-left: 120px;" -->
+
+--
+
 ### Sharing observable sequences
 
 ![Publish](../../assets/images/publish.svg)
 <!-- .element: style="display: inline-block; vertical-align: top;" -->
 ![Replay](../../assets/images/replay.svg)
-<!-- .element: style="display: inline-block; vertical-align: top; padding-left: 40px;" -->
+<!-- .element: class="fragment" style="display: inline-block; vertical-align: top; padding-left: 40px;" -->
 
 --
 
-<!-- .element: data-transition="none" -->
 ### Sharing observable sequences
 
-![Branching](../../assets/images/branching.svg)
-<!-- .element: style="display: inline-block; vertical-align: top;" -->
 ![Subjects (Publish)](../../assets/images/subjects-publish.svg)
 <!-- .element: style="display: inline-block; vertical-align: top; padding-left: 120px;" -->
+![Subjects (Replay)](../../assets/images/subjects-replay.svg)
+<!-- .element: class="fragment" style="display: inline-block; vertical-align: top; padding-left: 120px;" -->
+
+---
+
+### Higher-Order Operators
+
+![Concatenate video files using first order operators](../../assets/images/concatfile-firstorder.svg)
 
 --
 
-<!-- .element: data-transition="none" -->
-### Sharing observable sequences
+###### Enumerate Files
 
-![Branching](../../assets/images/branching.svg)
-<!-- .element: style="display: inline-block; vertical-align: top;" -->
-![Subjects (Replay)](../../assets/images/subjects-replay.svg)
-<!-- .element: style="display: inline-block; vertical-align: top; padding-left: 120px;" -->
+![Enumerate all file names in a folder](../../assets/images/concatfile-enumeratefiles.svg)
+
+--
+
+###### Window Workflow
+
+![Create sequences of frames from file names](../../assets/images/concatfile-window.svg)
+
+--
+
+###### Concat
+
+![Combine all sequences of frames into a single sequence](../../assets/images/concatfile-combine.svg)
 
 ---
 
@@ -51,6 +72,18 @@ permalink: /slides/advanced/
 ###### TriggeredBuffer
 
 ![TriggeredBuffer](../../assets/images/triggeredbuffer.svg)
+
+---
+
+###### Window
+
+![Window](../../assets/images/window.svg)
+
+---
+
+###### TriggeredWindow
+
+![TriggeredWindow](../../assets/images/triggeredwindow.svg)
 
 ---
 
